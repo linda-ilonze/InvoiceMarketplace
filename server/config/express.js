@@ -12,6 +12,10 @@ module.exports = function()
     var app=express();
     var server = http.createServer(app);
 
+    // setup logger, the value should be config driven
+    app.use(morgan('dev'));
+
+    // register the routes
     require('./routes')(app);
 
     return server;
