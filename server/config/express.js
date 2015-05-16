@@ -21,6 +21,7 @@ module.exports = function(config)
 
     // register the routes
     require('./routes')(app);
+    require('../routes/users.routes.js')(app);
 
     return server;
 }
