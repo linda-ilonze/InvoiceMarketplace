@@ -2,12 +2,16 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Invoice Marketplace</title>
 </head>
-<body>
-    Hello Worliiiid!!!
-    <form action="/login" method="POST">
-        <input type="submit" value="Login">
-    </form>
+<body ng-app="invoiceMarketplace">
+    Index html
+    <div ng-view>
+    </div>
 </body>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/requirejs/require.js"></script>
+<script src="../../public/app.js"></script>
+<script src="../../public/marketplace/marketplaceController.js"></script>
 </html>

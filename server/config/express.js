@@ -23,6 +23,7 @@ module.exports = function(config)
     require('./routes')(app);
     require('../routes/users.routes.js')(app);
     require('../routes/invoice.routes.js')(app);
+    require('../routes/partial.routes.js')(app);
 
     return server;
 }

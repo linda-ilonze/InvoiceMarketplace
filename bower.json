@@ -24,6 +24,7 @@
     "angular-route": "latest",
     "toastr": "latest",
     "jquery": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "requirejs": "latest"
   }
 }
