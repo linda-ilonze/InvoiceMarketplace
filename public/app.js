@@ -6,20 +6,22 @@
 //require(['marketplaceController'], function(marketplaceController){
     app = angular.module('invoiceMarketplace',['ngRoute']);
 
-    app.controller('marketplaceController');
+    //app.controller('marketplaceController')
+     //   .controller('dashboardController');
+    console.log("app ");
 
     app.config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.
                 when('/marketplace', {
-                    templateUrl: 'marketplace/marketPlaceView',
-                    controller: 'marketPlaceController'
+                    templateUrl: '/marketplace',
+                    controller: 'marketplaceController'
                 })
                 .when('/dashboard', {
-                    templateUrl: 'dashboard/dashboardView',
+                    templateUrl: '/dashboard',
                     controller: 'dashboardController'
                 })
-            otherwise({
+                .otherwise({
                 redirectTo: '/'
             });
         }]);
