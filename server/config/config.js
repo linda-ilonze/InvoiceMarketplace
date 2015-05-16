@@ -16,5 +16,15 @@ module.exports = {
             name:'InvoiceMarketPlace'
         } ,
         port:process.env.PORT ||4040
+    },
+    staging:{
+        rootPath:rootPath,
+        db:{connectionstring:'mongodb://admin:admin@ds037252.mongolab.com:37252/invoicemarketplace',
+            host: 'ds037252.mongolab.com',
+            port:37252,
+            username: 'admin',
+            password: 'admin',
+            name:'invoicemarketplace'
+        }
     }
 }
