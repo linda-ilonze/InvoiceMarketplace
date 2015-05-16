@@ -7,6 +7,9 @@ var User = require('mongoose').model('User');
 exports.create = function(req, res, next){
     console.log('users create function called');
     var user = new User(req.body);
+    user.firstName = "firstname";
+    user.lastName = "lastName";
+    user.email = "firstname.lastname@email.com";
     user.save(function(err){
         if(err){
             console.log('Error creating new user. Request body: ' + req.body + '\n Error: ' + err);
@@ -20,7 +23,7 @@ exports.create = function(req, res, next){
 
 exports.list = function(req, res, next){
     console.log('Users list function called');
-    User.find({}, function(err, users){
+    User.getAll(function(err, users){
         if(err){
             console.log('Error fetching list of users. Error: ' + err);
             return next(err);
@@ -29,4 +32,9 @@ exports.list = function(req, res, next){
             res.json(users);
         }
     });
+};
+
+exports.login = function(req, res, next){
+    console.log('Users login function called');
+    res.redirect('/home');
 };

@@ -9,4 +9,6 @@ module.exports = function(app) {
         .post(users.create)
         .get(users.list);
 
+    app.post('/login', users.login);
+
 }
