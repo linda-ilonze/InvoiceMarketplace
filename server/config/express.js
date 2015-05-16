@@ -24,6 +24,7 @@ module.exports = function(config)
     require('../routes/users.routes.js')(app);
     require('../routes/invoice.routes.js')(app);
     require('../routes/partial.routes.js')(app);
+    require('../routes/admin.routes.js')(app);
 
     return server;
 }

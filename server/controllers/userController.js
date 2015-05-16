@@ -29,6 +29,8 @@ exports.list = function(req, res, next){
             return next(err);
         }else{
             console.log('User list fetched');
+//            res.send('{"_id":"zz557703926725cc078f858a6","email":"firstname.lastname@email.com","lastName":"lastName","firstName":"firstname","__v":0}')
+
             res.json(users);
         }
     });
@@ -37,4 +39,79 @@ exports.list = function(req, res, next){
 exports.login = function(req, res, next){
     console.log('Users login function called');
     res.redirect('/home');
+};
+
+exports.regenerate = function(req, res, next) {
+    console.log('Users generate function called');
+
+    function delUser(element, index, array) {
+      console.log('deleting at [' + index + '] = ' + element);
+      User.remove("", function(err){
+          if (err) {
+              console.log('Error deleting user:' + err)}
+          });
+    };
+
+//    User.getAll(function(err, users){
+//                        if(err){
+//                            console.log('Error fetching list of users. Error: ' + err);
+//                            return next(err);
+//                        }else{
+//                            console.log('User list fetched');
+//                            users.forEach(delUser)
+//                        }
+//                });
+
+    var users =
+    [
+      {
+        "firstName": "Eloise",
+        "lastName": "Logan",
+        "email": "eloise.logan@snowpoke.co.uk"
+      },
+      {
+        "firstName": "Elva",
+        "lastName": "Skinner",
+        "email": "elva.skinner@printspan.biz"
+      },
+      {
+        "firstName": "Catherine",
+        "lastName": "Thomas",
+        "email": "catherine.thomas@comtext.org"
+      },
+      {
+        "firstName": "Pratt",
+        "lastName": "Foreman",
+        "email": "pratt.foreman@biolive.biz"
+      },
+      {
+        "firstName": "Puckett",
+        "lastName": "Cameron",
+        "email": "puckett.cameron@centice.me"
+      },
+      {
+        "firstName": "Price",
+        "lastName": "Carter",
+        "email": "price.carter@moreganic.ca"
+      },
+      {
+        "firstName": "Castro",
+        "lastName": "Anthony",
+        "email": "castro.anthony@qnekt.com"
+
+      }
+    ]
+
+    function addUser(element, index, array) {
+      console.log('a[' + index + '] = ' + element);
+      var userToAdd = new User(element);
+      userToAdd.save(function(err){
+          if (err) {
+              console.log('Error creating test user:' + err)}
+          });
+    }
+
+    users.forEach(addUser)
+
+    res.redirect('/users');
 };
