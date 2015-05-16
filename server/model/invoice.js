@@ -1,7 +1,8 @@
 /**
  * Created by Ilonze on 16/05/15.
  */
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 var invoiceSchema = new Schema({
     paymentDate: {
@@ -15,7 +16,7 @@ var invoiceSchema = new Schema({
     companyName: {
         type: String
     },
-    Amount: {
+    amount: {
         type: Number
     },
     targetAmount:{
@@ -26,9 +27,4 @@ var invoiceSchema = new Schema({
     }
 });
 
-invoiceSchema.statics.getAll = function(callback){
-    this.find({}, function(err, invoices){
-        callback(err, invoices);
-    });
-}
 mongoose.model('Invoice', invoiceSchema);

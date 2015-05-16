@@ -8,6 +8,7 @@ module.exports = function(config, next){
         console.log('###### mongo initialised #####');
 
         require('../model/user');
+        require('../model/invoice');
 
         next(err, db);
     });

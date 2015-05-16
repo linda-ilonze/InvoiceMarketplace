@@ -7,6 +7,7 @@ var User = require('mongoose').model('User');
 exports.create = function(req, res, next){
     console.log('users create function called');
     var user = new User(req.body);
+    console.log(JSON.stringify(req.body));
     user.save(function(err){
         if(err){
             console.log('Error creating new user. Request body: ' + req.body + '\n Error: ' + err);

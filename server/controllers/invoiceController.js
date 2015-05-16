@@ -5,13 +5,21 @@
 var Invoice = require('mongoose').model('Invoice');
 
 exports.create = function(req, res, next) {
+    console.log('invoice create function called');
     var invoice = req.body;
-    new Invoice({
-        paymentDate: invoice.paymentDate,
-        description: invoice.description,
-        companyName: invoice.companyName,
-        amount: invoice.amount,
-        targetAmount: invoice.targetAmount,
-        currentAmount: invoice.currentAmount
-    }).save();
-}
+    new Invoice(invoice).save();
+};
+
+
+exports.list = function(req, res, next){
+    console.log('Invoice list function called');
+    Invoice.find({}, function(err, invoice){
+        if(err){
+            console.log('Error fetching list of invoice. Error: ' + err);
+            return next(err);
+        }else{
+            console.log('Invoice list fetched');
+            res.json(invoice);
+        }
+    });
+};
