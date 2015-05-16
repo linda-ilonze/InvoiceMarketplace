@@ -3,7 +3,7 @@
  */
 
 angular.module('invoiceMarketplace').
-    controller('marketplaceController', function($scope) {
-        console.log("marketplaceController loaded");
+    controller('marketController', function($scope) {
+        console.log("marketController loaded");
         $scope.message = "marketplace view";
     });
