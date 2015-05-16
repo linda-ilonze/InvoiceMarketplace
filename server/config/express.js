@@ -4,7 +4,9 @@
 
 var express = require('express'),
     morgan = require('morgan'),
-    http = require('http');
+    http = require('http'),
+    path = require('path'),
+    rootPath = path.normalize(__dirname + '/../../'); // move root path to config
 
 module.exports = function()
 {
@@ -14,6 +16,8 @@ module.exports = function()
 
     // setup logger, the value should be config driven
     app.use(morgan('dev'));
+
+    app.use(express.static(rootPath));
 
     // register the routes
     require('./routes')(app);
