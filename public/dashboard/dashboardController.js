@@ -5,5 +5,7 @@
 angular.module('invoiceMarketplace').
     controller('dashboardController', function($scope) {
         console.log("dashboardController initialised");
-        $scope.message = "hello";
+        $scope.message = {
+
+        };
     });
