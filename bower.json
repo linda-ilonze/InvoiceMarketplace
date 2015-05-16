@@ -1,0 +1,28 @@
+{
+  "name": "InvoiceMarketplace",
+  "version": "0.0.1",
+  "homepage": "https://github.com/linda-ilonze/InvoiceMarketplace",
+  "authors": [
+    "toluhi <toluhi@yahoo.com>"
+  ],
+  "description": "invoice market place",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+        "angular": "latest",
+        "angular-resource": "latest",
+        "angular-route": "latest",
+        "toastr": "latest",
+        "jquery": "latest"
+    }
+}
