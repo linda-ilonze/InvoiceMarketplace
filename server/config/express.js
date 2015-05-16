@@ -8,7 +8,7 @@ var express = require('express'),
     path = require('path'),
     rootPath = path.normalize(__dirname + '/../../'); // move root path to config
 
-module.exports = function()
+module.exports = function(config)
 {
     // launch the app server
     var app=express();
@@ -17,7 +17,7 @@ module.exports = function()
     // setup logger, the value should be config driven
     app.use(morgan('dev'));
 
-    app.use(express.static(rootPath));
+    app.use(express.static(config.rootPath));
 
     // register the routes
     require('./routes')(app);
