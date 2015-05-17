@@ -6,13 +6,14 @@ var express = require('express'),
     morgan = require('morgan'),
     http = require('http'),
     path = require('path'),
-    rootPath = path.normalize(__dirname + '/../../'); // move root path to config
+    socketio = require('socket.io');
 
 module.exports = function(config)
 {
     // launch the app server
     var app=express();
     var server = http.createServer(app);
+    var io = socketio.listen(server);
 
     // setup logger, the value should be config driven
     app.use(morgan('dev'));
@@ -25,6 +26,9 @@ module.exports = function(config)
     require('../routes/invoice.routes.js')(app);
     require('../routes/partial.routes.js')(app);
     require('../routes/admin.routes.js')(app);
+
+    require('./socketio')(server, io);
+
 
     return server;
 }

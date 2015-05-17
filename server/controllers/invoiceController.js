@@ -4,6 +4,15 @@
 
 var Invoice = require('mongoose').model('Invoice');
 
+exports.socketHandlers = function(io, socket){
+    socket.on('getAllInvoices', function() {
+        console.log('getAllInvoices');
+        io.emit('AllInvoices', {
+            data: 'allinvoices'
+        });
+    });
+}
+
 exports.create = function(req, res, next) {
     console.log('invoice create function called');
     var invoice = req.body;

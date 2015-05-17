@@ -4,7 +4,7 @@
 
 
 //require(['marketplaceController'], function(marketplaceController){
-    app = angular.module('invoiceMarketplace',['ngRoute']);
+    app = angular.module('invoiceMarketplace',['ngRoute', 'LiveUpdates']);
 
     console.log("app ");
 
