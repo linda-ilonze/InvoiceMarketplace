@@ -27,7 +27,8 @@ exports.generate = function(req,res,next){
             "companyCode": "deloite",
             "amountRemaining": 32,
             "paybackPeriod": 60,
-            "annualAPR": 1.5
+            "annualAPR": 1.5,
+            targetAmount:2111
 
         },
         {
