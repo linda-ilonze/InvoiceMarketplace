@@ -29,8 +29,6 @@ exports.list = function(req, res, next){
             return next(err);
         }else{
             console.log('User list fetched');
-//            res.send('{"_id":"zz557703926725cc078f858a6","email":"firstname.lastname@email.com","lastName":"lastName","firstName":"firstname","__v":0}')
-
             res.json(users);
         }
     });
@@ -46,21 +44,21 @@ exports.regenerate = function(req, res, next) {
 
     function delUser(element, index, array) {
       console.log('deleting at [' + index + '] = ' + element);
-      User.remove("", function(err){
+      User.remove(element, function(err){
           if (err) {
               console.log('Error deleting user:' + err)}
           });
     };
 
-//    User.getAll(function(err, users){
-//                        if(err){
-//                            console.log('Error fetching list of users. Error: ' + err);
-//                            return next(err);
-//                        }else{
-//                            console.log('User list fetched');
-//                            users.forEach(delUser)
-//                        }
-//                });
+    User.getAll(function(err, users){
+                        if(err){
+                            console.log('Error fetching list of users. Error: ' + err);
+                            return next(err);
+                        }else{
+                            console.log('User list fetched');
+                            users.forEach(delUser)
+                        }
+                });
 
     var users =
     [

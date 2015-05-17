@@ -8,6 +8,6 @@ module.exports=function(app)
     });
 
     app.get('/',function(req,res){
-        res.sendFile('/public/index/index.html', { root: __dirname + '/../../' });
+        res.sendFile('/public/home/home.html', { root: __dirname + '/../../' });
     });
 }

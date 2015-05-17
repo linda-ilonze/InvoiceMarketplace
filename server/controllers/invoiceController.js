@@ -13,7 +13,25 @@ addInvoice = function(element, index) {
     });
 }
 
+delItem = function(element, index) {
+    console.log('a[' + index + '] = ' + element);
+    Invoice.remove(element, function(err){
+        if (err) {
+            console.log('Error creating invoice:' + err)}
+    });
+}
+
 exports.generate = function(req,res,next){
+
+    Invoice.getAll(function(err, allOfThem){
+                        if(err){
+                            console.log('Error fetching list of users. Error: ' + err);
+                            return next(err);
+                        }else{
+                            console.log('User list fetched');
+                            allOfThem.forEach(delItem)
+                        }
+                });
 
     console.log('Invoice generate called!');
     var invoices =  [
@@ -30,7 +48,7 @@ exports.generate = function(req,res,next){
             "companyCode": "deloite",
             "amountRemaining": 32,
             "paybackPeriod": 60,
-            "annualAPR": 1.5,
+            "annualAPR": 8.5,
             "targetAmount":2111,
             "rating":4.6
 
@@ -48,7 +66,7 @@ exports.generate = function(req,res,next){
             "companyCode": "ey",
             "amountRemaining": 28000,
             "paybackPeriod": 60,
-            "annualAPR": 1.5,
+            "annualAPR": 7.5,
             "targetAmount":40000,
             "rating":4.4
         },
@@ -64,7 +82,7 @@ exports.generate = function(req,res,next){
             "companyCode": "kpmg",
             "amountRemaining": 30000,
             "paybackPeriod": 50,
-            "annualAPR": 1.23,
+            "annualAPR": 9.3,
             "targetAmount":100000
 
         },
@@ -81,13 +99,15 @@ exports.generate = function(req,res,next){
             "companyCode": "pwc",
             "amountRemaining": 3000,
             "paybackPeriod": 60,
-            "annualAPR": 1.12,
+            "annualAPR": 11.2,
             "targetAmount":6000
 
         }
 
 
     ];
+
+
     invoices.forEach(addInvoice);
     res.redirect('/invoices');
 };
