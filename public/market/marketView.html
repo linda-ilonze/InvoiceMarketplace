@@ -1,12 +1,11 @@
 <div ng-repeat="invoice in invoices">
-    <div class="container col-xs-push-1 col-xs-10 invoice" style="padding: 0px; vertical-align: middle;;">
+    <div class="container col-xs-push-1 col-xs-10 invoice" style="padding-top: 5px; vertical-align: middle;;">
         <div class="col-xs-2" style="height: 100px; display: table-cell; vertical-align: middle" >
             <img class="col-xs-12" src="../public/images/logo_{{invoice.companyCode}}.png" />
             </div>
         <div class="col-xs-6" style="padding: 0px">
             <div>
                 <h3>{{invoice.companyName}}</h3>
-                <h6>{{invoice.description}}</h6>
             </div>
             <div>
                 <h6>{{invoice.numberOfInvestors}} Investors <span class="pull-right">{{invoice.daysLeftOnFunding}} Days</span></h6>
@@ -20,7 +19,7 @@
         </div>
         <div class="col-xs-2" style="text-align: center;">
             <div>
-                <h1 style="color: #FFA330">60</h1>
+                <h1 style="color: #FFA330">{{invoice.paybackPeriod}}</h1>
                 <h6>Days Payback</h6>
             </div>
         </div>
@@ -30,5 +29,6 @@
                 <h6>APR</h6>
             </div>
         </div>
+        <div class="col-xs-12" style="height: 5px; background-color: #999999"></div>
     </div>
 </div>
