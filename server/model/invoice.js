@@ -16,13 +16,22 @@ var invoiceSchema = new Schema({
     companyName: {
         type: String
     },
-    amount: {
+    annualAPR: {
         type: Number
     },
-    targetAmount:{
+    paybackPeriod: {
+        type: Number
+    },
+    amountRemaining: {
+        type: Number
+    },
+    daysLeftOnFunding: {
+        type: Number
+    },
+    percentageFunded:{
         type:Number
     },
-    currentAmount:{
+    numberOfInvestors:{
         type:Number
     }
 });
