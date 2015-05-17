@@ -4,6 +4,34 @@
 
 var Invoice = require('mongoose').model('Invoice');
 
+addInvoice = function(element, index) {
+    console.log('a[' + index + '] = ' + element);
+    var invoice = new Invoice(element);
+    invoice.save(function(err){
+        if (err) {
+            console.log('Error creating invoice:' + err)}
+    });
+}
+
+exports.generate = function(req,res,next){
+
+    console.log('Invoice generate called!');
+    var invoices =  [
+        {
+            "paymentDate":new Date("20 May 2015"),
+            "description":"Invoice for Supplying Shipping",
+            "numberOfInvestors": 22,
+            "percentageFunded": 30,
+            "daysLeftOnFunding": 60,
+            "companyName": "Deloitte",
+            "amountRemaining": 32,
+            "paybackPeriod": 60,
+            "annualAPR": 1.5
+
+        }];
+    invoices.forEach(addInvoice);
+    res.redirect('/invoices');
+};
 exports.socketHandlers = function(io, socket){
     socket.on('getAllInvoices', function() {
         console.log('getAllInvoices');
@@ -41,6 +69,3 @@ exports.list = function(req, res, next){
         }
     });
 };
-
-exports.generate = function(req, res, next){
-    console.log('Generate function called - not yet implemented')}
