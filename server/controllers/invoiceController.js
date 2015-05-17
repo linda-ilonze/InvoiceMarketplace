@@ -4,20 +4,29 @@
 
 var Invoice = require('mongoose').model('Invoice');
 
+exports.socketHandlers = function(io, socket){
+    socket.on('getAllInvoices', function() {
+        console.log('getAllInvoices');
+        Invoice.getAll(function(err, invoices){
+            var data = null;
+            if(err){
+                data = [];
+            }
+            else{
+                io.emit('AllInvoices', {
+                    invoices: invoices
+                });
+            }
+
+        })
+    });
+}
+
 exports.create = function(req, res, next) {
     console.log('invoice create function called');
     var invoice = req.body;
     new Invoice(invoice).save();
 };
-
-addInvoice = function(element, index) {
-    console.log('a[' + index + '] = ' + element);
-    var invoice = new Invoice(element);
-    invoice.save(function(err){
-        if (err) {
-            console.log('Error creating invoice:' + err)}
-    });
-}
 
 
 exports.list = function(req, res, next){
