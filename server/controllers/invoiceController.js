@@ -10,6 +10,15 @@ exports.create = function(req, res, next) {
     new Invoice(invoice).save();
 };
 
+addInvoice = function(element, index) {
+    console.log('a[' + index + '] = ' + element);
+    var invoice = new Invoice(element);
+    invoice.save(function(err){
+        if (err) {
+            console.log('Error creating invoice:' + err)}
+    });
+}
+
 
 exports.list = function(req, res, next){
     console.log('Invoice list function called');
