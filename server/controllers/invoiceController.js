@@ -40,3 +40,6 @@ exports.list = function(req, res, next){
         }
     });
 };
+
+exports.generate = function(req, res, next){
+    console.log('Generate function called - not yet implemented')}
