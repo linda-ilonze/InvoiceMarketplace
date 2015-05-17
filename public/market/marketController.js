@@ -9,6 +9,6 @@ angular.module('invoiceMarketplace').
         Socket.emit('getAllInvoices', {});
 
         Socket.on('AllInvoices', function(message){
-            $scope.invoices = message.invoices;
+            //$scope.invoices = message.invoices;
         });
     }]);
