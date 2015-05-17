@@ -5,10 +5,11 @@
 angular.module('invoiceMarketplace').
     controller('marketController', [ '$scope', 'Socket', function($scope, Socket) {
         console.log("marketController loaded");
-        $scope.invoices = [23, 22];
+        $scope.invoices = [];
         Socket.emit('getAllInvoices', {});
 
         Socket.on('AllInvoices', function(message){
-            //$scope.invoices = message.invoices;
+            //alert(JSON.stringify(message.invoices));
+            $scope.invoices = message.invoices;
         });
     }]);

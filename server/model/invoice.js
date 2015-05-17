@@ -13,6 +13,9 @@ var invoiceSchema = new Schema({
         type: String,
         required:true
     },
+    companyCode: {
+        type: String
+    },
     companyName: {
         type: String
     },

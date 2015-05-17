@@ -24,11 +24,39 @@ exports.generate = function(req,res,next){
             "percentageFunded": 30,
             "daysLeftOnFunding": 60,
             "companyName": "Deloitte",
+            "companyCode": "deloite",
             "amountRemaining": 32,
             "paybackPeriod": 60,
             "annualAPR": 1.5
 
-        }];
+        },
+        {
+            "paymentDate":new Date("20 May 2015"),
+            "description":"Invoice for Supplying Shipping",
+            "numberOfInvestors": 22,
+            "percentageFunded": 30,
+            "daysLeftOnFunding": 60,
+            "companyName": "Deloitte",
+            "companyCode": "deloite",
+            "amountRemaining": 32,
+            "paybackPeriod": 60,
+            "annualAPR": 1.5
+
+        },
+        {
+            "paymentDate":new Date("20 May 2015"),
+            "description":"Invoice for Supplying Shipping",
+            "numberOfInvestors": 22,
+            "percentageFunded": 30,
+            "daysLeftOnFunding": 60,
+            "companyName": "Deloitte",
+            "companyCode": "deloite",
+            "amountRemaining": 32,
+            "paybackPeriod": 60,
+            "annualAPR": 1.5
+
+        }
+    ];
     invoices.forEach(addInvoice);
     res.redirect('/invoices');
 };
