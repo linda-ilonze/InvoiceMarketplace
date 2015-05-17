@@ -26,7 +26,8 @@ exports.generate = function(req,res,next){
             "companyName": "Deloitte",
             "amountRemaining": 32,
             "paybackPeriod": 60,
-            "annualAPR": 1.5
+            "annualAPR": 1.5,
+            targetAmount:2111
 
         }];
     invoices.forEach(addInvoice);

@@ -25,6 +25,9 @@ var invoiceSchema = new Schema({
     amountRemaining: {
         type: Number
     },
+    targetAmount: {
+        type: Number
+    },
     daysLeftOnFunding: {
         type: Number
     },
