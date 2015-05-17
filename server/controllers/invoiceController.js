@@ -17,6 +17,7 @@ exports.socketHandlers = function(io, socket){
                     invoices: invoices
                 });
             }
+
         })
     });
 }
