@@ -27,4 +27,10 @@ var invoiceSchema = new Schema({
     }
 });
 
+invoiceSchema.statics.getAll = function(callback){
+    this.find({}, function(err, invoices){
+        callback(err, invoices);
+    });
+}
+
 mongoose.model('Invoice', invoiceSchema);
