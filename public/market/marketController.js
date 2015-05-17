@@ -3,7 +3,8 @@
  */
 
 angular.module('invoiceMarketplace').
-    controller('marketController', [ '$scope', 'Socket', function($scope, Socket) {
+    controller('marketController', [ '$scope', 'Socket', 'invoiceService', '$location',
+                                    function($scope, Socket,invoiceService,$location) {
         console.log("marketController loaded");
         $scope.invoices = [];
         Socket.emit('getAllInvoices', {});
@@ -12,4 +13,9 @@ angular.module('invoiceMarketplace').
             //alert(JSON.stringify(message.invoices));
             $scope.invoices = message.invoices;
         });
+
+        $scope.showDetail = function(invoice){
+            invoiceService.set(invoice);
+            $location.path("/dashboard");
+        }
     }]);

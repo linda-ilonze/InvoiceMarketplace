@@ -1,69 +1,102 @@
-<div class="row">
-    <div class="col-md-12">
-        <h1 class="page-header">
-            Dashboard <small>P and G Invoice</small>
-        </h1>
-    </div>
-</div>
+
 <!-- /. ROW  -->
-
-<div class="row">
-    <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="panel panel-primary text-center no-boder bg-color-blue">
-            <div class="panel-body">
-                <i class="fa fa-bar-chart-o fa-5x"></i>
-                <h3>8,457</h3>
-            </div>
-            <div class="panel-footer back-footer-blue">
-                Contracts
-
-            </div>
+<div class="container col-xs-push-1 col-xs-10 invoice" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-xs-2" style="height: 100px; display: table-cell;" >
+            <img class="col-xs-12" src="../public/images/logo_{{invoice.companyCode}}.png" />
+                </div>
+            <h1 class="page-header">
+                 {{invoice.companyName}} <small></small>
+            </h1>
         </div>
     </div>
-    <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="panel panel-primary text-center no-boder bg-color-blue">
-            <div class="panel-body">
-                <i class="fa fa-shopping-cart fa-5x"></i>
-                <h3>52,160 </h3>
+    <div class="row">
+        <div class="col-md-8 description">
+           {{invoice.description}}        </div>
+        <div class="col-md-4">
+            <div class="col-xs-8 pull-left money">
+                {{invoice.annualAPR}}
+                <div class="money-subscript">
+                    APR
+                </div>
             </div>
-            <div class="panel-footer back-footer-blue">
-                Sales
+            <div class="col-xs-8 pull-left money">
+                {{invoice.paybackPeriod}}
+                <div class="money-subscript">
+                    Days Payback
+                </div>
+                <img src="../../public/images/ProgressBar.png"/>
+                <div class="money-subscript">
+                    {{invoice.percentageFunded}} Funded
+                </div>
+            </div>
+            </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary text-center no-border bg-color-blue">
+                <div class="panel-body">
+                    <div class="col-xs-8 pull-left money" style="margin: -10px;">
+                      50k
+                        <div class="money-subscript">
+                            Money owed in Invoices
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="../../public/images/moneyIcon.png"/>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="panel panel-primary text-center no-boder bg-color-blue">
-            <div class="panel-body">
-                <i class="fa fa-users fa-5x"></i>
-                <h3>20 </h3>
+        <div class="col-md-3">
+            <div class="panel panel-primary text-center no-border bg-color-blue">
+                <div class="panel-body">
+                    <div class="col-xs-8 pull-left money">
+                       40k
+                        <div class="money-subscript">
+                            One Time Payment
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="../../public/images/Time.png"/>
+                    </div>
+                </div>
             </div>
-            <div class="panel-footer back-footer-blue">
-                People Invested
-
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-border bg-color-blue">
+                <div class="panel-body">
+                    <div class="col-xs-8 pull-left money" style="margin: -7px;">
+                        {{invoice.numberOfInvestors}}
+                        <div class="money-subscript">
+                           Number of Investors
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="../../public/images/invoiceIcon.png"/>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<div class="col-md-9 col-sm-12 col-xs-12">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Payment History
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-border bg-color-blue">
+                <div class="panel-body">
+                    <div class="col-xs-8 pull-left money" style="margin: -7px;">
+                       4.5
+                        <div class="money-subscript">
+                           Reliability Rating
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="../../public/images/starIcon.png"/>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <div id="morris-bar-chart"></div>
         </div>
-    </div>
-</div>
-<div class="col-md-3 col-sm-12 col-xs-12">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Percentage to Target
         </div>
-        <div class="panel-body">
-            <div id="morris-donut-chart"></div>
-        </div>
-    </div>
 </div>

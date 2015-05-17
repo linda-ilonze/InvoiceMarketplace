@@ -3,9 +3,8 @@
  */
 
 angular.module('invoiceMarketplace').
-    controller('dashboardController', function($scope) {
+    controller('dashboardController', ['$scope','invoiceService',function($scope,invoiceService) {
         console.log("dashboardController initialised");
-        $scope.message = {
+        $scope.invoice = invoiceService.get();
 
-        };
-    });
+    }]);

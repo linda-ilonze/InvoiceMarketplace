@@ -1,5 +1,5 @@
 <div ng-repeat="invoice in invoices">
-    <div class="container col-xs-push-1 col-xs-10 invoice" style="padding-top: 5px; vertical-align: middle;;">
+    <div class="container col-xs-push-1 col-xs-10 invoice" style="padding-top: 5px; vertical-align: middle;;" ng-click="showDetail(invoice)">
         <div class="col-xs-2" style="height: 100px; display: table-cell; vertical-align: middle" >
             <img class="col-xs-12" src="../public/images/logo_{{invoice.companyCode}}.png" />
             </div>
