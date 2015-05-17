@@ -2,9 +2,45 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../public/css/bootswatch.min.css">
+    <link rel="stylesheet" href="../../public/css/invoice.css">
     <title></title>
 </head>
-<body>
-Home!!!
+<body class="well" ng-app="invoiceMarketplace" style="padding: 0px">
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TIC</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#market">Marketplace <span class="sr-only">(current)</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">My Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div ng-view>
+</div>
+
+
 </body>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/requirejs/require.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../public/app.js"></script>
+<script src="../../public/market/marketController.js"></script>
+<script src="../../public/dashboard/dashboardController.js"></script>
 </html>
